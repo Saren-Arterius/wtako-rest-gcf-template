@@ -2,7 +2,7 @@
 Express + knex + pgsql + pgadmin + nodemon + babel + eslint for @google-cloud/functions-emulator
 
 # Deploy env
-1. Ensure `nvm` and `docker-compose` installed
+1. Ensure `nvm`, `gcloud` and `docker-compose` installed
 2. `$ ./init-node.sh`
 
 # Dev start

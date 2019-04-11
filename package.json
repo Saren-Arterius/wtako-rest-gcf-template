@@ -8,6 +8,7 @@
     ]
   },
   "scripts": {
+    "deploy": "yarn clean && yarn build && cp package.json dist && gcloud functions deploy server --trigger-http --runtime nodejs6 --source=dist --memory=128M --region=asia-east2",
     "sync-db": "yarn build && node dist/bin/sync-db.js",
     "drop-db": "yarn build && node dist/bin/drop-db.js",
     "pgadmin": "cd pgadmin && docker-compose up",
