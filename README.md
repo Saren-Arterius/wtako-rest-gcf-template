@@ -1,13 +1,15 @@
 # OwO what's this
 Express + knex + pgsql + pgadmin + nodemon + babel + eslint for @google-cloud/functions-emulator
 
-# Deploy env
+# Workflow
 1. Ensure `nvm`, `gcloud` and `docker-compose` installed
-2. `$ ./init-node.sh`
-
-# Dev start
-1. `$ yarn sync-db`
-2. `$ yarn dev`
+2. `$ ./init-node.sh` to initialize node 6 and node dependencies
+3. Assume pgsql will be used, edit `src/config.js` and `src/secrets.js` for connection details
+4. Edit `migrations/_init.js` for DB schema
+5. `$ yarn sync-db`
+6. `$ yarn dev` and open the URL
+7. Write your code inside `src`, access pgAdmin when needed, reset DB when needed
+9. Ensure gcloud is correctly setup, edit package.json for gcf deploy configs and `$ yarn deploy`
 
 # Reset DB (Do NOT run in production)
 1. `$ yarn reset-db`
