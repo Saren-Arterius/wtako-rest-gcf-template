@@ -1,4 +1,3 @@
-// eslint-disable-next-line node/no-unpublished-require
 import {SECRETS} from './secrets';
 
 const dev = {

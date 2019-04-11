@@ -1,11 +1,9 @@
 import express from 'express';
 import {knex} from '../common';
-import {updateDB} from '../utils';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  await updateDB();
+router.get('/', (req, res) => {
   res.send(`Hello world from express! Knex is ${knex}`);
 });
 
