@@ -1,7 +1,7 @@
 // eslint-disable-next-line node/no-unpublished-require
-const SECRETS = require('./secrets');
+import {SECRETS} from './secrets';
 
-exports.CONFIG = {
+const dev = {
   timezone: {
     postgres: 'Asia/Hong_Kong',
     tzoffset: 8 * 60 * 60 * 1000
@@ -12,7 +12,7 @@ exports.CONFIG = {
       host: SECRETS.pg_host,
       user: SECRETS.pg_user,
       password: SECRETS.pg_password,
-      database: 'wtako_rest_gcf_template'
+      database: 'wtako_rest_gcf_template_dev'
     }
   },
   firebase: {
@@ -20,3 +20,27 @@ exports.CONFIG = {
   }
 };
 
+const prod = {
+  timezone: {
+    postgres: 'Asia/Hong_Kong',
+    tzoffset: 8 * 60 * 60 * 1000
+  },
+  knex: {
+    client: 'pg',
+    connection: {
+      host: SECRETS.pg_host,
+      user: SECRETS.pg_user,
+      password: SECRETS.pg_password,
+      database: 'wtako_rest_gcf_template_prod'
+    }
+  },
+  firebase: {
+    // REDACTED
+  }
+};
+
+if (process.env.PROD) {
+  exports.CONFIG = prod;
+} else {
+  exports.CONFIG = dev;
+}
